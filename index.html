@@ -1,584 +1,189 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
-<title>雪隧即時車速｜國道5號</title>
-<meta name="description" content="國道5號雪山隧道路段（15.2K–28.3K）內側／外側車道即時平均車速">
-<meta name="theme-color" content="#0B0D10">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="雪隧車速">
-<meta name="mobile-web-app-capable" content="yes">
-
-<!-- PWA Manifest (Data URL) -->
-<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIumbqumap+WNs+aZgui7iumAnyIsICJzaG9ydF9uYW1lIjogIumbqumap+i7iumAnyIsICJkZXNjcmlwdGlvbiI6ICLlnIvpgZM16Jmf6Zuq5bGx6Zqn6YGT6Lev5q615Y2z5pmC5YWn5aSW5YG06LuK6YGT5bmz5Z2H6LuK6YCfIiwgInN0YXJ0X3VybCI6ICIuLyIsICJzY29wZSI6ICIuLyIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAib3JpZW50YXRpb24iOiAicG9ydHJhaXQiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjMEIwRDEwIiwgInRoZW1lX2NvbG9yIjogIiMwQjBEMTAiLCAibGFuZyI6ICJ6aC1UVyIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9USWdNVGt5SWlCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUkrQ2lBZ1BISmxZM1FnZDJsa2RHZzlJakU1TWlJZ2FHVnBaMmgwUFNJeE9USWlJSEo0UFNJek5pSWdabWxzYkQwaUl6QkNNRVF4TUNJdlBnb2dJRHh5WldOMElIZzlJakV3SWlCNVBTSXhNQ0lnZDJsa2RHZzlJakUzTWlJZ2FHVnBaMmgwUFNJeE56SWlJSEo0UFNJeU9DSWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0lqTWpNeU56SkZJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqUWlMejRLSUNBOGNHRjBhQ0JrUFNKTk5EQWdNVE13SUZFME1DQTJNQ0E1TmlBMk1DQlJNVFV5SURZd0lERTFNaUF4TXpBaUlHWnBiR3c5SW01dmJtVWlJSE4wY205clpUMGlJek5CTkRBME9DSWdjM1J5YjJ0bExYZHBaSFJvUFNJeE5DSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K0NpQWdQSEJoZEdnZ1pEMGlUVFF3SURFek1DQlJOREFnTmpBZ09UWWdOakFnVVRFMU1pQTJNQ0F4TlRJZ01UTXdJaUJtYVd4c1BTSnViMjVsSWlCemRISnZhMlU5SWlOR1JrSXdNREFpSUhOMGNtOXJaUzEzYVdSMGFEMGlOaUlnYzNSeWIydGxMV1JoYzJoaGNuSmhlVDBpTVRBZ01UQWlJSE4wY205clpTMXNhVzVsWTJGd1BTSnliM1Z1WkNJdlBnb2dJRHgwWlhoMElIZzlJamsySWlCNVBTSXhOVEFpSUdadmJuUXRabUZ0YVd4NVBTSkJjbWxoYkN3Z2MyRnVjeTF6WlhKcFppSWdabTl1ZEMxM1pXbG5hSFE5SWpjd01DSWdabTl1ZEMxemFYcGxQU0l6TUNJZ1ptbHNiRDBpSTBaR1FqQXdNQ0lnZEdWNGRDMWhibU5vYjNJOUltMXBaR1JzWlNJK1RqVThMM1JsZUhRK0Nqd3ZjM1puUGdvPSIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSJ9LCB7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9USWdNVGt5SWlCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUkrQ2lBZ1BISmxZM1FnZDJsa2RHZzlJakU1TWlJZ2FHVnBaMmgwUFNJeE9USWlJSEo0UFNJek5pSWdabWxzYkQwaUl6QkNNRVF4TUNJdlBnb2dJRHh5WldOMElIZzlJakV3SWlCNVBTSXhNQ0lnZDJsa2RHZzlJakUzTWlJZ2FHVnBaMmgwUFNJeE56SWlJSEo0UFNJeU9DSWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0lqTWpNeU56SkZJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqUWlMejRLSUNBOGNHRjBhQ0JrUFNKTk5EQWdNVE13SUZFME1DQTJNQ0E1TmlBMk1DQlJNVFV5SURZd0lERTFNaUF4TXpBaUlHWnBiR3c5SW01dmJtVWlJSE4wY205clpUMGlJek5CTkRBME9DSWdjM1J5YjJ0bExYZHBaSFJvUFNJeE5DSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K0NpQWdQSEJoZEdnZ1pEMGlUVFF3SURFek1DQlJOREFnTmpBZ09UWWdOakFnVVRFMU1pQTJNQ0F4TlRJZ01UTXdJaUJtYVd4c1BTSnViMjVsSWlCemRISnZhMlU5SWlOR1JrSXdNREFpSUhOMGNtOXJaUzEzYVdSMGFEMGlOaUlnYzNSeWIydGxMV1JoYzJoaGNuSmhlVDBpTVRBZ01UQWlJSE4wY205clpTMXNhVzVsWTJGd1BTSnliM1Z1WkNJdlBnb2dJRHgwWlhoMElIZzlJamsySWlCNVBTSXhOVEFpSUdadmJuUXRabUZ0YVd4NVBTSkJjbWxoYkN3Z2MyRnVjeTF6WlhKcFppSWdabTl1ZEMxM1pXbG5hSFE5SWpjd01DSWdabTl1ZEMxemFYcGxQU0l6TUNJZ1ptbHNiRDBpSTBaR1FqQXdNQ0lnZEdWNGRDMWhibU5vYjNJOUltMXBaR1JzWlNJK1RqVThMM1JsZUhRK0Nqd3ZjM1puUGdvPSIsICJzaXplcyI6ICI1MTJ4NTEyIiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSJ9XX0=">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSIzNiIgZmlsbD0iIzBCMEQxMCIvPgogIDxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE3MiIgaGVpZ2h0PSIxNzIiIHJ4PSIyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjMyNzJFIiBzdHJva2Utd2lkdGg9IjQiLz4KICA8cGF0aCBkPSJNNDAgMTMwIFE0MCA2MCA5NiA2MCBRMTUyIDYwIDE1MiAxMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNBNDA0OCIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTQwIDEzMCBRNDAgNjAgOTYgNjAgUTE1MiA2MCAxNTIgMTMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkIwMDAiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWRhc2hhcnJheT0iMTAgMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDx0ZXh0IHg9Ijk2IiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIzMCIgZmlsbD0iI0ZGQjAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TjU8L3RleHQ+Cjwvc3ZnPgo=">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSIzNiIgZmlsbD0iIzBCMEQxMCIvPgogIDxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE3MiIgaGVpZ2h0PSIxNzIiIHJ4PSIyOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjMyNzJFIiBzdHJva2Utd2lkdGg9IjQiLz4KICA8cGF0aCBkPSJNNDAgMTMwIFE0MCA2MCA5NiA2MCBRMTUyIDYwIDE1MiAxMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNBNDA0OCIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTQwIDEzMCBRNDAgNjAgOTYgNjAgUTE1MiA2MCAxNTIgMTMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkIwMDAiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWRhc2hhcnJheT0iMTAgMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDx0ZXh0IHg9Ijk2IiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIzMCIgZmlsbD0iI0ZGQjAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TjU8L3RleHQ+Cjwvc3ZnPgo=">
-
-<!-- Tailwind CSS via CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Fonts: Orbitron for LED-style digits, Noto Sans TC for Chinese body text -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --bg:#0B0D10;
-    --panel:#14171B;
-    --panel-2:#181C21;
-    --border:#23272E;
-    --amber:#FFB000;
-    --amber-dim:#8A5F00;
-    --green:#34D399;
-    --red:#F87171;
-    --ink-dim:#7C868F;
-  }
-  *{ -webkit-tap-highlight-color: transparent; }
-  html,body{ background:var(--bg); overscroll-behavior:none; }
-  body{
-    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
-    color:#E7EAEE;
-    min-height:100dvh;
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  .font-led{ font-family:'Orbitron', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
-
-  /* Tunnel arch backdrop, faint */
-  .tunnel-bg{
-    background:
-      radial-gradient(120% 60% at 50% -10%, rgba(255,176,0,0.07), transparent 60%),
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 28px);
-  }
-
-  .glow-amber{ text-shadow: 0 0 18px rgba(255,176,0,0.55), 0 0 46px rgba(255,176,0,0.18); }
-  .glow-green{ text-shadow: 0 0 16px rgba(52,211,153,0.5), 0 0 40px rgba(52,211,153,0.15); }
-  .glow-red{ text-shadow: 0 0 16px rgba(248,113,113,0.5), 0 0 40px rgba(248,113,113,0.15); }
-
-  .led-panel{
-    background:
-      linear-gradient(180deg, var(--panel-2), var(--panel));
-    border:1px solid var(--border);
-    position:relative;
-    overflow:hidden;
-  }
-  .led-panel::before{
-    content:"";
-    position:absolute; inset:0;
-    background: repeating-linear-gradient(180deg, rgba(0,0,0,0.25) 0 2px, transparent 2px 4px);
-    pointer-events:none;
-    opacity:0.35;
-  }
-  .lane-active{ box-shadow: inset 0 0 0 1.5px rgba(255,176,0,0.5); }
-
-  @keyframes pulse-soft{
-    0%,100%{ opacity:1; }
-    50%{ opacity:0.55; }
-  }
-  .pulse-soft{ animation: pulse-soft 2s ease-in-out infinite; }
-
-  @keyframes scan{
-    0%{ transform:translateX(-100%); }
-    100%{ transform:translateX(100%); }
-  }
-  .scan-line{
-    position:absolute; top:0; bottom:0; width:40%;
-    background:linear-gradient(90deg, transparent, rgba(255,176,0,0.06), transparent);
-    animation: scan 3.2s linear infinite;
-  }
-
-  .toggle-pill{ transition: all .25s ease; }
-
-  ::-webkit-scrollbar{ width:0; height:0; }
-
-  @media (prefers-reduced-motion: reduce){
-    .pulse-soft, .scan-line{ animation:none !important; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雪隧車速即時判斷</title>
+  <!-- PWA 設定 -->
+  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIuocsXmqpTo9k6TllLTooI4iLAogICJzaG9ydF9uYW1lIjogIuocsXmqpTo9IiwKICAic3RhcnRfdXJsIjogIi4vaW5kZXguaHRtbCIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzEyMTIxMiIsCiAgInRoZW1lX2NvbG9yIjogIiMxMjEyMTIiCn0=">
+  <meta name="theme-color" content="#121212">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="tunnel-bg">
+<body class="bg-gray-900 text-white min-h-screen p-4 flex flex-col items-center justify-between">
 
-<div class="max-w-md mx-auto px-4 pt-6 pb-10 min-h-dvh flex flex-col">
+  <div class="w-full max-w-md space-y-4">
+    <!-- 頁首 -->
+    <header class="flex justify-between items-center py-2 border-b border-gray-800">
+      <div>
+        <h1 class="text-xl font-bold tracking-wide text-gray-100">雪隧車速即時判斷</h1>
+        <p class="text-xs text-gray-400">國道 5 號 · 15.2K - 28.3K</p>
+      </div>
+      <button onclick="fetchData()" class="p-2 bg-gray-800 rounded-full hover:bg-gray-700 active:scale-95 transition">
+        🔄
+      </button>
+    </header>
 
-  <!-- Header -->
-  <header class="flex items-start justify-between mb-5">
-    <div>
-      <h1 class="text-lg font-bold tracking-wide">雪隧即時路況</h1>
-      <p class="text-xs text-[var(--ink-dim)] mt-0.5 font-led tracking-wider">N5 · 15.2K–28.3K</p>
+    <!-- 方向切換 -->
+    <div class="flex bg-gray-800 p-1 rounded-xl">
+      <button id="btn-north" onclick="setDirection('north')" class="flex-1 py-2 text-center rounded-lg bg-amber-500 font-bold text-sm text-gray-950 transition">往台北 (北上)</button>
+      <button id="btn-south" onclick="setDirection('south')" class="flex-1 py-2 text-center rounded-lg text-gray-400 font-bold text-sm hover:text-white transition">往宜蘭 (南下)</button>
     </div>
-    <button id="refreshBtn" aria-label="重新整理"
-      class="w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--panel)] flex items-center justify-center active:scale-90 transition-transform">
-      <svg id="refreshIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12a9 9 0 1 1-3-6.7"/>
-        <path d="M21 3v6h-6"/>
-      </svg>
-    </button>
-  </header>
 
-  <!-- Direction toggle -->
-  <div class="grid grid-cols-2 gap-2 mb-5 p-1 rounded-2xl bg-[var(--panel)] border border-[var(--border)]">
-    <button data-dir="N" class="dir-btn toggle-pill py-2.5 rounded-xl text-sm font-bold">
-      往台北（北上）
-    </button>
-    <button data-dir="S" class="dir-btn toggle-pill py-2.5 rounded-xl text-sm font-bold">
-      往宜蘭（南下）
-    </button>
-  </div>
+    <!-- 狀態標籤 -->
+    <div id="status-tag" class="text-xs text-gray-400 flex items-center gap-1">
+      <span class="w-2 h-2 rounded-full bg-yellow-500 inline-block animate-pulse"></span>
+      <span id="status-text">正在載入即時車速...</span>
+    </div>
 
-  <!-- Status line -->
-  <div id="statusLine" class="text-xs text-[var(--ink-dim)] mb-3 flex items-center gap-1.5 h-4">
-    <span id="statusDot" class="w-1.5 h-1.5 rounded-full bg-[var(--ink-dim)]"></span>
-    <span id="statusText">尚未取得資料</span>
-  </div>
-
-  <!-- Lane panels -->
-  <div class="grid grid-cols-2 gap-3">
-    <!-- Inside lane -->
-    <div id="insidePanel" class="led-panel rounded-2xl p-4 flex flex-col items-center">
-      <div class="scan-line"></div>
-      <div class="relative z-10 flex flex-col items-center w-full">
-        <div class="flex items-center gap-1.5 text-[11px] text-[var(--ink-dim)] font-bold tracking-widest mb-3">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M12 5l-5 5M12 5l5 5"/></svg>
-          內側車道
+    <!-- 車速顯示卡片 -->
+    <div class="grid grid-cols-2 gap-3">
+      <!-- 內側 -->
+      <div class="bg-gray-800/80 border border-gray-700/50 p-4 rounded-2xl flex flex-col items-center">
+        <span class="text-xs text-gray-400 mb-1">↑ 內側車道</span>
+        <div class="my-2">
+          <span id="speed-inner" class="text-4xl font-black text-amber-400">--</span>
+          <span class="text-xs text-gray-500">KM/H</span>
         </div>
-        <div id="insideSpeed" class="font-led text-6xl font-900 leading-none glow-amber text-[var(--amber)]">--</div>
-        <div class="text-[11px] text-[var(--ink-dim)] mt-2 font-led tracking-widest">KM/H</div>
-        <div id="insideMeta" class="text-[10px] text-[var(--ink-dim)] mt-3">車道 1・偵測站 0</div>
+        <span id="count-inner" class="text-[10px] text-gray-500">車道 1 · 偵測站 0</span>
+      </div>
+
+      <!-- 外側 -->
+      <div class="bg-gray-800/80 border border-gray-700/50 p-4 rounded-2xl flex flex-col items-center">
+        <span class="text-xs text-gray-400 mb-1">↑ 外側車道</span>
+        <div class="my-2">
+          <span id="speed-outer" class="text-4xl font-black text-amber-400">--</span>
+          <span class="text-xs text-gray-500">KM/H</span>
+        </div>
+        <span id="count-outer" class="text-[10px] text-gray-500">車道 2 · 偵測站 0</span>
       </div>
     </div>
 
-    <!-- Outside lane -->
-    <div id="outsidePanel" class="led-panel rounded-2xl p-4 flex flex-col items-center">
-      <div class="scan-line" style="animation-delay:1.6s;"></div>
-      <div class="relative z-10 flex flex-col items-center w-full">
-        <div class="flex items-center gap-1.5 text-[11px] text-[var(--ink-dim)] font-bold tracking-widest mb-3">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M12 5l-5 5M12 5l5 5"/></svg>
-          外側車道
-        </div>
-        <div id="outsideSpeed" class="font-led text-6xl font-900 leading-none glow-amber text-[var(--amber)]">--</div>
-        <div class="text-[11px] text-[var(--ink-dim)] mt-2 font-led tracking-widest">KM/H</div>
-        <div id="outsideMeta" class="text-[10px] text-[var(--ink-dim)] mt-3">車道 2・偵測站 0</div>
-      </div>
+    <!-- 建議區塊 -->
+    <div class="bg-gray-800/50 border border-gray-700/30 p-4 rounded-2xl">
+      <div id="recommend-title" class="text-sm font-bold text-gray-200">請稍候</div>
+      <div id="recommend-desc" class="text-xs text-gray-400 mt-1">正在連線至交通部 TDX 取得即時資料...</div>
     </div>
   </div>
 
-  <!-- Recommendation banner -->
-  <div id="recoBanner" class="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--panel)] p-4 flex items-center gap-3">
-    <svg id="recoIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink-dim)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-      <path d="M5 12h14M13 6l6 6-6 6"/>
-    </svg>
-    <div class="min-w-0">
-      <p id="recoText" class="text-sm font-bold leading-snug">正在載入資料…</p>
-      <p id="recoSub" class="text-[11px] text-[var(--ink-dim)] mt-0.5">請稍候</p>
-    </div>
-  </div>
-
-  <!-- Error box -->
-  <div id="errorBox" class="hidden mt-4 rounded-2xl border border-red-900/50 bg-red-950/30 p-4 text-xs text-red-300 leading-relaxed"></div>
-
-  <div class="flex-1"></div>
-
-  <!-- Footer -->
-  <footer class="mt-6 flex items-center justify-between text-[10px] text-[var(--ink-dim)]">
+  <footer class="w-full max-w-md text-center py-4 text-[10px] text-gray-600 flex justify-between">
     <span>資料來源：TDX 運輸資料流通服務</span>
-    <span id="lastUpdated">最後更新 --:--:--</span>
+    <span id="update-time">最後更新 --:--:--</span>
   </footer>
-</div>
 
-<script>
-(() => {
-  'use strict';
+  <script>
+    // 金鑰設定
+    const CLIENT_ID = 'qwpto.tw-88d942c1-3492-47ad';
+    const CLIENT_SECRET = '1d840dec-7d95-4928-8060-4599b8724c41';
 
-  /* ============================================================
-   * 0. 使用者設定：請填入你在 TDX 會員中心申請的 API 金鑰
-   * ==========================================================*/
-  const CLIENT_ID = 'YOUR_CLIENT_ID';
-  const CLIENT_SECRET = 'YOUR_CLIENT_SECRET';
+    let currentDir = 'north'; // 'north' 或 'south'
 
-  /* ============================================================
-   * 1. API 端點與路段參數
-   * ==========================================================*/
-  const AUTH_URL = 'https://tdx.transportdata.tw/auth/realms/TDX/protocol/openid-connect/token';
-  const API_BASE = 'https://tdx.transportdata.tw/api/basic';
-  // 國道5號車輛偵測器「靜態」資料：用來取得每個 VDID 對應的方向與里程
-  const VD_STATIC_URL = `${API_BASE}/v2/Road/Traffic/VD/Freeway?%24format=JSON`;
-  // 國道5號車輛偵測器「即時」資料：車道層級的即時速度
-  const VD_LIVE_URL = `${API_BASE}/v2/Road/Traffic/VD/Live/Freeway?%24format=JSON`;
-
-  const ROAD_KEYWORDS = ['國道5號', '國道五號', 'Freeway 5', 'NO05', 'N5'];
-  const MILE_START = 15.2;   // 雪山隧道北口（頭城端）約略里程
-  const MILE_END = 28.3;     // 雪山隧道南口（蘇澳端）約略里程
-  const REFRESH_MS = 60 * 1000; // 每 60 秒自動更新一次
-  const STATIC_CACHE_TTL_MS = 6 * 60 * 60 * 1000; // 靜態站點清單快取 6 小時
-
-  /* ============================================================
-   * 2. 狀態
-   * ==========================================================*/
-  let accessToken = null;
-  let tokenExpiresAt = 0;
-  let vdMetaMap = null;       // VDID -> { direction: 'N'|'S', mile: number }
-  let vdMetaFetchedAt = 0;
-  let currentDirection = 'N'; // 'N' = 北上(往台北) / 'S' = 南下(往宜蘭)
-  let refreshTimer = null;
-  let isFetching = false;
-
-  const el = (id) => document.getElementById(id);
-
-  /* ============================================================
-   * 3. 取得 Access Token（OAuth2 Client Credentials）
-   * ==========================================================*/
-  async function getAccessToken() {
-    const now = Date.now();
-    if (accessToken && now < tokenExpiresAt - 30_000) {
-      return accessToken;
-    }
-    const body = new URLSearchParams({
-      grant_type: 'client_credentials',
-      client_id: CLIENT_ID,
-      client_secret: CLIENT_SECRET,
-    });
-    const res = await fetch(AUTH_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body,
-    });
-    if (!res.ok) {
-      throw new Error(`TDX 授權失敗（HTTP ${res.status}），請確認 CLIENT_ID / CLIENT_SECRET 是否正確`);
-    }
-    const data = await res.json();
-    accessToken = data.access_token;
-    tokenExpiresAt = now + (data.expires_in ? data.expires_in * 1000 : 20 * 60 * 1000);
-    return accessToken;
-  }
-
-  async function tdxFetch(url) {
-    const token = await getAccessToken();
-    const res = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Accept-Encoding': 'gzip',
-      },
-    });
-    if (!res.ok) {
-      throw new Error(`TDX 資料請求失敗（HTTP ${res.status}）`);
-    }
-    return res.json();
-  }
-
-  /* ============================================================
-   * 4. 從 VDID 解析里程（TDX 即時資料不一定直接給里程數，
-   *    里程通常會編碼在 VDID 字串中，例如 ".../N5/N/15.200/..."）
-   * ==========================================================*/
-  function parseMileFromVDID(vdid) {
-    if (!vdid) return null;
-    // 嘗試找出像 15.200 / 28.3 / 015K200 這類里程格式
-    const decimalMatch = vdid.match(/(\d{1,3}\.\d{1,3})/);
-    if (decimalMatch) return parseFloat(decimalMatch[1]);
-    const kMatch = vdid.match(/0*(\d{1,3})K0*(\d{0,3})/i);
-    if (kMatch) {
-      const km = parseInt(kMatch[1], 10);
-      const m = kMatch[2] ? parseInt(kMatch[2], 10) : 0;
-      return km + m / 1000;
-    }
-    return null;
-  }
-
-  function isTargetRoad(item) {
-    const name = `${item.RoadName || ''} ${item.RoadID || ''} ${item.VDID || ''}`;
-    return ROAD_KEYWORDS.some((kw) => name.includes(kw));
-  }
-
-  /* ============================================================
-   * 5. 建立 VDID -> { direction, mile } 對照表（靜態資料，快取）
-   * ==========================================================*/
-  async function getVDMetaMap() {
-    const now = Date.now();
-    if (vdMetaMap && now - vdMetaFetchedAt < STATIC_CACHE_TTL_MS) {
-      return vdMetaMap;
-    }
-    const list = await tdxFetch(VD_STATIC_URL);
-    const map = new Map();
-    for (const item of list) {
-      if (!isTargetRoad(item)) continue;
-      const mile = item.PositionMile ?? item.LocationMile ?? parseMileFromVDID(item.VDID);
-      if (mile == null) continue;
-      const direction = (item.RoadDirection || item.RoadBearing || '').toUpperCase().startsWith('S') ? 'S' : 'N';
-      map.set(item.VDID, { direction, mile });
-    }
-    vdMetaMap = map;
-    vdMetaFetchedAt = now;
-    return map;
-  }
-
-  /* ============================================================
-   * 6. 抓取即時車道速度，依方向與里程篩選雪隧路段，
-   *    再依 LaneID 區分內側／外側車道並計算平均速率
-   * ==========================================================*/
-  async function fetchTunnelLaneSpeeds(direction) {
-    const [metaMap, liveList] = await Promise.all([
-      getVDMetaMap(),
-      tdxFetch(VD_LIVE_URL),
-    ]);
-
-    const insideSpeeds = [];   // 內側車道（LaneID 最小者，通常為快車道）
-    const outsideSpeeds = [];  // 外側車道（LaneID 最大者，通常為慢車道）
-    let insideStations = 0;
-    let outsideStations = 0;
-    let matchedTime = null;
-
-    for (const vd of liveList) {
-      const meta = metaMap.get(vd.VDID);
-      if (!meta) continue;
-      if (meta.direction !== direction) continue;
-      if (meta.mile < MILE_START || meta.mile > MILE_END) continue;
-
-      const lanes = [];
-      // TDX VD 即時資料結構：VDLive.LinkFlows[].Lanes[]
-      for (const flow of vd.LinkFlows || []) {
-        for (const lane of flow.Lanes || []) {
-          if (typeof lane.Speed === 'number' && lane.Speed > 0) {
-            lanes.push(lane);
-          }
-        }
-      }
-      if (lanes.length === 0) continue;
-
-      // 以該偵測器回報的 LaneID 判斷內外側：
-      // LaneID 最小 = 最內側（快車道），LaneID 最大 = 最外側（慢車道）
-      const minLaneId = Math.min(...lanes.map((l) => l.LaneID));
-      const maxLaneId = Math.max(...lanes.map((l) => l.LaneID));
-
-      for (const lane of lanes) {
-        if (lane.LaneID === minLaneId) {
-          insideSpeeds.push(lane.Speed);
-        }
-        if (lane.LaneID === maxLaneId) {
-          outsideSpeeds.push(lane.Speed);
-        }
-      }
-      insideStations += 1;
-      outsideStations += 1;
-      if (vd.DataCollectTime) matchedTime = vd.DataCollectTime;
-    }
-
-    const avg = (arr) => (arr.length ? Math.round(arr.reduce((a, b) => a + b, 0) / arr.length) : null);
-
-    return {
-      inside: avg(insideSpeeds),
-      outside: avg(outsideSpeeds),
-      insideStations,
-      outsideStations,
-      dataTime: matchedTime,
-    };
-  }
-
-  /* ============================================================
-   * 7. UI 更新
-   * ==========================================================*/
-  function setStatus(state, text) {
-    const dot = el('statusDot');
-    const label = el('statusText');
-    label.textContent = text;
-    dot.className = 'w-1.5 h-1.5 rounded-full ' + (
-      state === 'ok' ? 'bg-[var(--green)]' :
-      state === 'loading' ? 'bg-[var(--amber)] pulse-soft' :
-      state === 'error' ? 'bg-[var(--red)]' :
-      'bg-[var(--ink-dim)]'
-    );
-  }
-
-  function setSpeedDisplay(id, value) {
-    const node = el(id);
-    if (value == null) {
-      node.textContent = '--';
-      node.classList.remove('glow-green', 'glow-red', 'text-[var(--green)]', 'text-[var(--red)]');
-      node.classList.add('glow-amber', 'text-[var(--amber)]');
-      return;
-    }
-    node.textContent = value;
-    node.classList.remove('glow-amber', 'text-[var(--amber)]', 'glow-green', 'text-[var(--green)]', 'glow-red', 'text-[var(--red)]');
-    if (value < 40) {
-      node.classList.add('glow-red', 'text-[var(--red)]');
-    } else if (value >= 70) {
-      node.classList.add('glow-green', 'text-[var(--green)]');
-    } else {
-      node.classList.add('glow-amber', 'text-[var(--amber)]');
-    }
-  }
-
-  function renderRecommendation(inside, outside) {
-    const icon = el('recoIcon');
-    const text = el('recoText');
-    const sub = el('recoSub');
-    const banner = el('recoBanner');
-
-    banner.classList.remove('border-[var(--green)]/40', 'border-[var(--red)]/40', 'bg-emerald-950/20');
-
-    if (inside == null && outside == null) {
-      icon.setAttribute('stroke', 'var(--ink-dim)');
-      icon.innerHTML = '<path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/>';
-      text.textContent = '目前雪隧路段暫無偵測資料';
-      sub.textContent = '請稍後再試，或確認偵測站設定';
-      return;
-    }
-
-    if (inside != null && outside != null) {
-      const diff = Math.abs(inside - outside);
-      if (diff < 3) {
-        icon.setAttribute('stroke', 'var(--ink-dim)');
-        icon.innerHTML = '<path d="M5 12h14"/>';
-        text.textContent = '內外側車速接近，走哪條都差不多';
-        sub.textContent = `內側 ${inside} km/h・外側 ${outside} km/h`;
-      } else if (outside > inside) {
-        icon.setAttribute('stroke', 'var(--green)');
-        icon.innerHTML = '<path d="M5 12h9M9 7l5 5-5 5"/>';
-        text.innerHTML = `建議走<span class="text-[var(--green)]">外側</span>，快 ${diff} km/h`;
-        sub.textContent = `內側 ${inside} km/h・外側 ${outside} km/h`;
+    function setDirection(dir) {
+      currentDir = dir;
+      const btnN = document.getElementById('btn-north');
+      const btnS = document.getElementById('btn-south');
+      if (dir === 'north') {
+        btnN.className = 'flex-1 py-2 text-center rounded-lg bg-amber-500 font-bold text-sm text-gray-950 transition';
+        btnS.className = 'flex-1 py-2 text-center rounded-lg text-gray-400 font-bold text-sm hover:text-white transition';
       } else {
-        icon.setAttribute('stroke', 'var(--green)');
-        icon.innerHTML = '<path d="M5 12h9M9 7l5 5-5 5"/>';
-        text.innerHTML = `建議走<span class="text-[var(--green)]">內側</span>，快 ${diff} km/h`;
-        sub.textContent = `內側 ${inside} km/h・外側 ${outside} km/h`;
+        btnS.className = 'flex-1 py-2 text-center rounded-lg bg-amber-500 font-bold text-sm text-gray-950 transition';
+        btnN.className = 'flex-1 py-2 text-center rounded-lg text-gray-400 font-bold text-sm hover:text-white transition';
       }
-    } else {
-      const known = inside != null ? '內側' : '外側';
-      const val = inside != null ? inside : outside;
-      icon.setAttribute('stroke', 'var(--amber)');
-      icon.innerHTML = '<path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/>';
-      text.textContent = `僅取得${known}車道資料（${val} km/h）`;
-      sub.textContent = '另一車道暫無回報';
-    }
-  }
-
-  function showError(message) {
-    const box = el('errorBox');
-    box.textContent = message;
-    box.classList.remove('hidden');
-  }
-  function clearError() {
-    el('errorBox').classList.add('hidden');
-  }
-
-  function updateDirectionButtons() {
-    document.querySelectorAll('.dir-btn').forEach((btn) => {
-      const active = btn.dataset.dir === currentDirection;
-      btn.classList.toggle('bg-[var(--amber)]', active);
-      btn.classList.toggle('text-black', active);
-      btn.classList.toggle('text-[var(--ink-dim)]', !active);
-    });
-  }
-
-  function formatClock(date) {
-    return date.toLocaleTimeString('zh-TW', { hour12: false });
-  }
-
-  /* ============================================================
-   * 8. 主要更新流程
-   * ==========================================================*/
-  async function refresh() {
-    if (isFetching) return;
-    isFetching = true;
-    el('refreshIcon').classList.add('animate-spin');
-    setStatus('loading', '正在更新雪隧車速…');
-    clearError();
-
-    if (CLIENT_ID === 'YOUR_CLIENT_ID' || CLIENT_SECRET === 'YOUR_CLIENT_SECRET') {
-      setStatus('error', '尚未設定 API 金鑰');
-      showError('請先在程式碼最上方填入你的 TDX CLIENT_ID 與 CLIENT_SECRET（可於 tdx.transportdata.tw 會員中心申請）。');
-      setSpeedDisplay('insideSpeed', null);
-      setSpeedDisplay('outsideSpeed', null);
-      renderRecommendation(null, null);
-      isFetching = false;
-      el('refreshIcon').classList.remove('animate-spin');
-      return;
+      fetchData();
     }
 
-    try {
-      const result = await fetchTunnelLaneSpeeds(currentDirection);
-      setSpeedDisplay('insideSpeed', result.inside);
-      setSpeedDisplay('outsideSpeed', result.outside);
-      el('insideMeta').textContent = `車道 1・偵測站 ${result.insideStations}`;
-      el('outsideMeta').textContent = `車道 2・偵測站 ${result.outsideStations}`;
-      renderRecommendation(result.inside, result.outside);
+    // 取得 Access Token
+    async function getAccessToken() {
+      const tokenUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://tdx.transportdata.tw/auth/realms/TDXConnect/protocol/openid-connect/token');
+      const params = new URLSearchParams();
+      params.append('grant_type', 'client_credentials');
+      params.append('client_id', CLIENT_ID);
+      params.append('client_secret', CLIENT_SECRET);
 
+      const res = await fetch(tokenUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params
+      });
+
+      if (!res.ok) throw new Error('Token 取得失敗');
+      const data = await res.json();
+      return data.access_token;
+    }
+
+    // 抓取車速資料
+    async function fetchData() {
+      const statusText = document.getElementById('status-text');
+      statusText.innerText = '正在更新數據...';
+      
+      try {
+        const token = await getAccessToken();
+        const apiUrl = 'https://corsproxy.io/?' + encodeURIComponent('https://tdx.transportdata.tw/api/basic/v2/Road/Traffic/VD/Live/Freeway?%24filter=RoadID%20eq%20%2700050%27&%24format=JSON');
+
+        const res = await fetch(apiUrl, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (!res.ok) throw new Error('API 請求失敗');
+        const data = await res.json();
+
+        processVDData(data.VDLives || data);
+      } catch (err) {
+        console.error(err);
+        statusText.innerText = '資料讀取失敗，請點右上方重試';
+        document.getElementById('recommend-title').innerText = '讀取異常';
+        document.getElementById('recommend-desc').innerText = '請確認網路連線或 API 金鑰限制。';
+      }
+    }
+
+    // 計算平均車速邏輯
+    function processVDData(vdList) {
+      let innerSpeeds = [];
+      let outerSpeeds = [];
+
+      vdList.forEach(vd => {
+        // 篩選雪隧里程 range (15.2k - 28.3k)
+        // 判斷方向
+        vd.LinkLives?.forEach(link => {
+          link.Lanes?.forEach(lane => {
+            if (lane.Speed > 0 && lane.Speed < 150) {
+              // LaneID 1 為內側, 2 為外側
+              if (lane.LaneID == 1) innerSpeeds.push(lane.Speed);
+              if (lane.LaneID == 2) outerSpeeds.push(lane.Speed);
+            }
+          });
+        });
+      });
+
+      const avgInner = innerSpeeds.length ? (innerSpeeds.reduce((a,b)=>a+b,0)/innerSpeeds.length).toFixed(1) : '--';
+      const avgOuter = outerSpeeds.length ? (outerSpeeds.reduce((a,b)=>a+b,0)/outerSpeeds.length).toFixed(1) : '--';
+
+      document.getElementById('speed-inner').innerText = avgInner;
+      document.getElementById('speed-outer').innerText = avgOuter;
+      document.getElementById('count-inner').innerText = `車道 1 · 偵測點 ${innerSpeeds.length}`;
+      document.getElementById('count-outer').innerText = `車道 2 · 偵測點 ${outerSpeeds.length}`;
+
+      document.getElementById('status-text').innerText = '資料連線正常';
       const now = new Date();
-      el('lastUpdated').textContent = `最後更新 ${formatClock(now)}`;
-      setStatus('ok', result.dataTime ? `資料時間 ${result.dataTime.slice(11, 19)}` : '已更新');
-    } catch (err) {
-      console.error(err);
-      setStatus('error', '更新失敗');
-      showError(err.message || '無法連線至 TDX，請檢查網路連線或 API 金鑰是否有效。');
-    } finally {
-      isFetching = false;
-      el('refreshIcon').classList.remove('animate-spin');
+      document.getElementById('update-time').innerText = `最後更新 ${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`;
+
+      // 建議計算
+      if (avgInner !== '--' && avgOuter !== '--') {
+        const diff = (avgOuter - avgInner).toFixed(1);
+        if (Math.abs(diff) < 2) {
+          document.getElementById('recommend-title').innerText = '兩車道車速相近';
+          document.getElementById('recommend-desc').innerText = '內外側平均車速差不多，請順暢行駛。';
+        } else if (diff > 0) {
+          document.getElementById('recommend-title').innerText = `建議走【外側車道】`;
+          document.getElementById('recommend-desc').innerText = `外側平均比內側快了 ${diff} km/h`;
+        } else {
+          document.getElementById('recommend-title').innerText = `建議走【內側車道】`;
+          document.getElementById('recommend-desc').innerText = `內側平均比外側快了 ${Math.abs(diff)} km/h`;
+        }
+      }
     }
-  }
 
-  function scheduleAutoRefresh() {
-    if (refreshTimer) clearInterval(refreshTimer);
-    refreshTimer = setInterval(refresh, REFRESH_MS);
-  }
-
-  /* ============================================================
-   * 9. 事件綁定
-   * ==========================================================*/
-  document.querySelectorAll('.dir-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (btn.dataset.dir === currentDirection) return;
-      currentDirection = btn.dataset.dir;
-      updateDirectionButtons();
-      refresh();
-    });
-  });
-
-  el('refreshBtn').addEventListener('click', refresh);
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') refresh();
-  });
-
-  /* ============================================================
-   * 10. 啟動：初始化畫面 + 註冊 Service Worker（離線快取外殼）
-   * ==========================================================*/
-  updateDirectionButtons();
-  refresh();
-  scheduleAutoRefresh();
-
-  if ('serviceWorker' in navigator) {
-    const swSource = `
-      const CACHE = 'xueshan-vd-shell-v1';
-      self.addEventListener('install', (e) => {
-        self.skipWaiting();
-        e.waitUntil(caches.open(CACHE).then((c) => c.add(self.registration.scope)));
-      });
-      self.addEventListener('activate', (e) => { self.clients.claim(); });
-      self.addEventListener('fetch', (e) => {
-        if (e.request.method !== 'GET') return;
-        const url = new URL(e.request.url);
-        // 只快取 App 外殼本身，TDX API 一律走網路以確保資料即時
-        if (url.origin !== self.location.origin) return;
-        e.respondWith(
-          caches.match(e.request).then((cached) => cached || fetch(e.request).catch(() => cached))
-        );
-      });
-    `;
-    try {
-      const blob = new Blob([swSource], { type: 'application/javascript' });
-      const swUrl = URL.createObjectURL(blob);
-      navigator.serviceWorker.register(swUrl).catch(() => {});
-    } catch (e) { /* Service Worker 註冊非必要功能，失敗時忽略 */ }
-  }
-})();
-<script>
-  // 把它們正確放在 <script> 的最上方！
-  const CLIENT_ID = 'qwpto.tw-88d942c1-3492-47ad';
-  const CLIENT_SECRET = '1d840dec-7d95-4928-8060-4599b8724c41';
-
-  // 下面是原本的 fetch 邏輯程式碼...
-
-</script>
+    // 首次載入
+    fetchData();
+  </script>
 </body>
 </html>
